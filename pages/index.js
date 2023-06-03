@@ -1,10 +1,15 @@
+import data from '../utils/data';
+import Layout from './components/Layout';
+import ProductItem from './components/Productitem';
 
 export default function Home() {
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24`}
-    >
-      <h1 className='text-3xl font-bold'>Main Tailwind amazona</h1>
-    </main>
+    <Layout title="Home page">
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4">
+        {data.products.map((product) => (
+          <ProductItem  product={product} key={product.slug}/>
+        ))}
+      </div>
+    </Layout>
   );
 }
